@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import HomePage from 'src/pages/HomePage';
+import './normalize.css';
 
 function App() {
   return (

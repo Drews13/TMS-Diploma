@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+img { 
+  display: block;
+}
+
+#root {
+  height: 100%;
+}
+
+.App {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "Exo 2";
+  src: url(src/assets/fonts/static/Exo2-Medium.ttf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Exo 2";
+  src: url(src/assets/fonts/static/Exo2-SemiBold.ttf);
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Exo 2";
+  src: url(src/assets/fonts/static/Exo2-Bold.ttf);
+  font-weight: 700;
+}
