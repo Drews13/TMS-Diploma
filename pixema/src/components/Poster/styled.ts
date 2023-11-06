@@ -1,6 +1,13 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+export const StyledLink = styled(Link)`
+text-decoration: none;
+color: inherit;
+`
+
 export const StyledPoster = styled.div`
+cursor: pointer;
 width: calc(25% - 15px);
 display: flex;
 flex-direction: column;

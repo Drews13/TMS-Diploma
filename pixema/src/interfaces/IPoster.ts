@@ -1,4 +1,6 @@
+import { ICountry } from "./ICountry";
 import { IGenre } from "./IGenre";
+import { IPerson } from "./IPerson";
 
 export interface IPoster {
   id: number;
@@ -6,10 +8,20 @@ export interface IPoster {
   description: string;
   movieLength: number;
   year: number;
-  countries: string[];
   genres: IGenre[];
+  countries: ICountry[];
   poster: {
     previewUrl: string;
     url: string;
   };
+  rating: {
+    imdb: number;
+  };
+  fees: {
+    world: {
+      value: number;
+      currency: string;
+    };
+  };
+  persons: IPerson[];
 }

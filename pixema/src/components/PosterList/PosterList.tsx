@@ -7,7 +7,7 @@ import { IPoster } from "src/interfaces/IPoster";
 const PosterList: FC<IPosterList> = ({posters}) => {
   return (
     <StyledPosterList>
-      { !!posters.length && posters.map((poster: IPoster) => <Poster post={poster} key={poster.id}></Poster>) }
+      { !!posters.length && posters.map((poster: IPoster) => <Poster poster={poster} key={poster.id}></Poster>) }
     </StyledPosterList>
   );
 };
