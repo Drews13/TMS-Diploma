@@ -16,4 +16,5 @@ flex-grow: 1;
 `
 
 export const StyledMain = styled.main`
+flex-grow: 1;
 `

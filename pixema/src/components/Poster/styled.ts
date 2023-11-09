@@ -7,14 +7,31 @@ color: inherit;
 `
 
 export const StyledPoster = styled.div`
+position: relative;
 cursor: pointer;
 width: calc(25% - 15px);
 display: flex;
 flex-direction: column;
+
+&:hover {
+  opacity: 0.5;
+}
+`
+
+export const StyledPosterRating = styled.div<{$rating: number}>`
+position: absolute;
+top: 20px;
+left: 20px;
+background-color: ${props => (props.$rating >= 7) ? "#00A340" : (props.$rating >= 5) ? "#F3A608" : "#F45D2D"};
+padding: 2px 8px;
+font-weight: 600;
+border-radius: 6px;
+line-height: 24px;
 `
 
 export const StyledPosterPic = styled.img`
 width: 100%;
+height: 425px;
 margin-bottom: 24px;
 border-radius: 20px;
 `

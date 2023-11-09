@@ -20,13 +20,41 @@ import {
 } from "./styled";
 import Button from "../ui/Button";
 import FavoritesIcon from 'src/assets/img/SideBar/favorites.png';
+import { useDispatch, useSelector } from "react-redux";
+import { IUser } from "src/interfaces/IUser";
+import { SET_USER_DATA_CREATOR } from "src/actions/actions";
+import { USERS_URL } from "src/constants/URLS";
 
 const SelectedPoster: FC<ISelectedPoster> = ({poster}) => {
+  const userData = useSelector(({userData}) => userData);
+  const dispatch = useDispatch();
+
+  const addFavorite = async () => {
+    let newUserData: IUser = {
+      id: userData.id,
+      name: userData.name,
+      email: userData.email,
+      password: userData.password,
+      favoritesId: userData.favoritesId
+    }
+    let ind: number = newUserData.favoritesId.findIndex((id: number) => id === poster.id);
+    (ind === -1) ? newUserData.favoritesId.push(poster.id) : newUserData.favoritesId.splice(ind, 1);
+    dispatch(SET_USER_DATA_CREATOR(newUserData));
+
+    await fetch(`${USERS_URL}/${userData.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newUserData)
+    });
+  }
+
   return (
     <StyledPoster>
       <StyledPosterPreview>
-        <StyledPosterPic src={poster.poster.previewUrl}/>
-        <Button isGrey={true}>
+        <StyledPosterPic src={poster.poster.url}/>
+        <Button isGrey={!userData.favoritesId.includes(poster.id)} callback={() => addFavorite()}>
           <StyledButtonIcon src={FavoritesIcon}/>
         </Button>
       </StyledPosterPreview>
@@ -36,7 +64,7 @@ const SelectedPoster: FC<ISelectedPoster> = ({poster}) => {
         </StyledGenresList>
         <StyledPosterName>{poster.name}</StyledPosterName>
         <StyledPosterSquares>
-          <StyledPosterRating>{poster.rating.imdb}</StyledPosterRating>
+          <StyledPosterRating $rating={poster.rating.imdb}>{poster.rating.imdb}</StyledPosterRating>
           <StyledPosterLength>{poster.movieLength} min</StyledPosterLength>
         </StyledPosterSquares>
         <StyledPosterDesc>{poster.description}</StyledPosterDesc>

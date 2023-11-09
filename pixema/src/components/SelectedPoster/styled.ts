@@ -6,7 +6,7 @@ gap: 40px;
 `
 
 export const StyledPosterPreview = styled.div`
-
+width: 1000px;
 `
 
 export const StyledPosterPic = styled.img`
@@ -48,8 +48,8 @@ gap: 20px;
 margin-bottom: 40px;
 `
 
-export const StyledPosterRating = styled.div`
-background-color: #00A340;
+export const StyledPosterRating = styled.div<{$rating: number}>`
+background-color: ${props => (props.$rating >= 7) ? "#00A340" : (props.$rating >= 5) ? "#F3A608" : "#F45D2D"};
 padding: 2px 8px;
 font-weight: 600;
 border-radius: 6px;

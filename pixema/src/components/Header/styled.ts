@@ -15,6 +15,10 @@ max-width: 120px;
 cursor: pointer;
 `
 
+export const StyledInputContainer = styled.div`
+width: 1000px;
+`
+
 export const StyledHeaderGroup = styled.div`
 display: flex;
 gap: 32px;
@@ -26,6 +30,10 @@ width: 160px;
 display: flex;
 justify-content: space-between;
 align-items: center;
+`
+
+export const StyledBtnContainer = styled.div`
+width: 160px;
 `
 
 export const StyledAvatar = styled.img`

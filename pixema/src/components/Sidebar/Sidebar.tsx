@@ -8,16 +8,19 @@ import FavoritesIcon from 'src/assets/img/SideBar/favorites.png';
 import FavoritesActiveIcon from 'src/assets/img/SideBar/favorites-active.png';
 import SettingIcon from 'src/assets/img/SideBar/setting.png';
 import SettingActiveIcon from 'src/assets/img/SideBar/setting-active.png';
+import { ROUTE_FAVORITES, ROUTE_SETTINGS, ROUTE_TRENDS } from "src/constants/Routes";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const userData = useSelector(({userData}) => userData);
 
   return (
     <StyledSideBar>
       <StyledList>
         <NavLink to="/" icon={HomeIcon} iconActive={HomeActiveIcon} text="Home"/>
-        <NavLink to="/a" icon={TrendsIcon} iconActive={TrendsActiveIcon} text="Trends"/>
-        <NavLink to="/b" icon={FavoritesIcon} iconActive={FavoritesActiveIcon} text="Favorites"/>
-        <NavLink to="/c" icon={SettingIcon} iconActive={SettingActiveIcon} text="Settings"/>
+        <NavLink to={ROUTE_TRENDS} icon={TrendsIcon} iconActive={TrendsActiveIcon} text="Trends"/>
+        {!!userData && <NavLink to={ROUTE_FAVORITES} icon={FavoritesIcon} iconActive={FavoritesActiveIcon} text="Favorites"/>}
+        {!!userData && <NavLink to={ROUTE_SETTINGS} icon={SettingIcon} iconActive={SettingActiveIcon} text="Settings"/>}
       </StyledList>
       <StyledCopyright>© All Rights Reserved</StyledCopyright>
     </StyledSideBar>
