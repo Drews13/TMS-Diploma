@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "qwerty",
+      "email": "qwe@mail.ru",
+      "password": "qwerty",
+      "favoritesId": [
+        5405547
+      ]
+    }
+  ]
+}

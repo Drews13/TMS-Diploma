@@ -1,0 +1,3 @@
+export const POSTERS_URL = "https://api.kinopoisk.dev/v1.4/movie";
+export const NOT_NULL_FIELDS = "&notNullFields=id&notNullFields=name&notNullFields=description&notNullFields=year&notNullFields=rating.imdb&notNullFields=movieLength&notNullFields=genres.name&notNullFields=countries.name&notNullFields=poster.url&notNullFields=persons.id&notNullFields=persons.name&notNullFields=persons.enProfession&notNullFields=fees.world";
+export const USERS_URL = "http://localhost:3000/users";
